@@ -1,0 +1,11 @@
+Ruby NetworkManager Bindings
+Andrew Clunis <andrew@orospakr.ca>
+
+Dependencies:
+
+NetworkManager => 1.0
+ruby-dbus => 0.2.0
+
+Test cases:
+
+Installation:
