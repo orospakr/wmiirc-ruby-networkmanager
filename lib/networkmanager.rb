@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 
 require 'dbus'
 
@@ -29,7 +30,7 @@ module NetworkManager
       #p devices
       device_objects = []
       devices.each do |device_path|
-        device_objects << NetworkManager::Device.new(device_path, @nm_service)
+        device_objects << NetworkManager::Device.new(device_path)
       end
       #p device_objects
       device_objects
@@ -54,4 +55,10 @@ module NetworkManager
   end
 end
 
+# silly test
+
+# nm = NetworkManager::Manager.new()
+# devices = nm.get_devices()
+# #print(devices)
+# print devices[0].get_name
 
