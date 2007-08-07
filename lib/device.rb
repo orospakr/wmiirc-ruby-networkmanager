@@ -1,5 +1,6 @@
 
 require 'dbus'
+require 'network'
 
 module NetworkManager
   # Encapsulates a NetworkManager Device object.
@@ -21,32 +22,32 @@ module NetworkManager
     end
 
     def get_name
-      @device_interface.getName
+      @device_interface.getName[0]
     end
 
     def get_link_active
-      @device_interface.getLinkActive
+      @device_interface.getLinkActive[0]
     end
 
     def get_type
-      @device_interface.getType
+      @device_interface.getType[0]
     end
 
     def get_hal_udi
-      @device_interface.getHalUdi
+      @device_interface.getHalUdi[0]
     end
 
     def get_ipv4_address
-      @device_interface.getIP4Address
+      @device_interface.getIP4Address[0]
     end
 
     def get_strength
-      @device_interface.getStrength
+      @device_interface.getStrength[0]
     end
 
     # return
     def get_network_paths
-      @device_interface.getNetworks
+      @device_interface.getNetworks[0]
     end
 
     def get_networks
@@ -55,6 +56,7 @@ module NetworkManager
       path_array.each do |network_path|
         network_objects << NetworkManager::Network.new(network_path)
       end
+      network_objects
     end
   end
 end

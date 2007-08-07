@@ -54,7 +54,7 @@ module NetworkManager
       devices.each do |device|
         #return device if device.get_link_active
         #p device.methods.sort
-        return device.get_name
+        return device if device.get_link_active
       end
     end
   end

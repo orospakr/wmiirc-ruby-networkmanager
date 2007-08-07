@@ -13,27 +13,27 @@ module NetworkManager
     end
 
     def get_name
-      @network_interface.getName
+      @network_interface.getName[0]
     end
 
     def get_address
-      @network_interface.getAddress
+      @network_interface.getAddress[0]
     end
 
     def get_strength
-      @network_interface.getStrength
+      @network_interface.getStrength[0]
     end
 
     def get_frequency
-      @network_interface.getFrequency
+      @network_interface.getFrequency[0]
     end
 
     def get_rate
-      @network_interface.getRate
+      @network_interface.getRate[0]
     end
 
     def get_encrypted
-      @network_interface.getEncrypted
+      @network_interface.getEncrypted[0]
     end
   end
 end

@@ -22,5 +22,15 @@ module NetworkManager
       active_device = @networkmanager.get_active_device
       active_device.should_not be_nil
     end
+
+    # this should of course be factored into network-test.rb
+    it "'s active device should return a network list" do
+      active_device = @networkmanager.get_active_device
+      networks = active_device.get_networks
+      networks.each do |network|
+        print "#{network.get_name}\n"
+      end
+      networks.should_not be_nil
+    end
   end
 end
