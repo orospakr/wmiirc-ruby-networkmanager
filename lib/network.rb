@@ -15,5 +15,25 @@ module NetworkManager
     def get_name
       @network_interface.getName
     end
+
+    def get_address
+      @network_interface.getAddress
+    end
+
+    def get_strength
+      @network_interface.getStrength
+    end
+
+    def get_frequency
+      @network_interface.getFrequency
+    end
+
+    def get_rate
+      @network_interface.getRate
+    end
+
+    def get_encrypted
+      @network_interface.getEncrypted
+    end
   end
 end

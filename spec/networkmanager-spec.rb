@@ -13,12 +13,12 @@ module NetworkManager
       @networkmanager.nm_object.should_not be_nil
     end
 
-    it "should return a list of all the network devices" do
-      devices = @networkmanager.get_devices.should_not be_nil
+    it "should return a list of all the network device paths" do
+      devices = @networkmanager.get_device_paths.should_not be_nil
       #print devices
     end
 
-    it "should return the current network device" do
+    it "should return the active network device" do
       active_device = @networkmanager.get_active_device
       active_device.should_not be_nil
     end

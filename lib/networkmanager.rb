@@ -23,10 +23,15 @@ module NetworkManager
       @nm_interface.define_method("getDevices", "")
     end
 
+
+    def get_device_paths
+      @nm_interface.getDevices[0]
+    end
+
     # returns an array of NetworkDevice objects
     def get_devices
       #p "calling get_devices"
-      devices = @nm_interface.getDevices[0]
+      devices = get_device_paths
       #p devices
       device_objects = []
       devices.each do |device_path|
