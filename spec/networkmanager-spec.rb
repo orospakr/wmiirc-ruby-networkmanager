@@ -24,6 +24,7 @@ module NetworkManager
     end
 
     # this should of course be factored into network-test.rb
+    # ... and I probably shouldn't be talking to the real NM daemon.
     it "'s active device should return a network list" do
       active_device = @networkmanager.get_active_device
       networks = active_device.get_networks
