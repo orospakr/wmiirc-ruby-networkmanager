@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'networkmanager'
+
+nm = NetworkManager::Manager.new()
+
+nm.get_active_device.get_networks.each do |network|
+    print "#{network.get_name}\n"
+end
