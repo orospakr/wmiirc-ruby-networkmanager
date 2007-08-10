@@ -4,6 +4,9 @@ require 'networkmanager/network'
 
 module NetworkManager
   # Encapsulates a NetworkManager Device object.
+  TYPE_UNKNOWN = 0
+  TYPE_WIRED = 1
+  TYPE_WIRELESS = 2
   class Device
     attr_accessor :nm_service, :device_object, :device_interface
     def initialize(device_path)

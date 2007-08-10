@@ -4,6 +4,16 @@ require 'networkmanager'
 
 nm = NetworkManager::Manager.new()
 
-nm.get_active_device.get_networks.each do |network|
-    print "#{network.get_name}\n"
+nm.get_devices.each do |device|
+    print "Device #{device.get_name}, type #{device.get_type}\n"
+
+    if device.get_type == NetworkManager::TYPE_WIRELESS
+        device.get_networks.each do |network|
+            print "  Network: #{network.get_name}\n"
+            #print "    Frequency: #{network.get_frequency}\n"
+            #print "    Strength: #{network.get_strength}\n"
+            #print "    IPv4:     #{network.get_ipv4_address}\n"
+
+        end
+    end
 end
