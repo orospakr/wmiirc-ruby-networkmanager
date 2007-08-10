@@ -2,7 +2,7 @@
 
 require 'dbus'
 
-require 'device'
+require 'networkmanager/device'
 
 module NetworkManager
   NM_SERVICE = "org.freedesktop.NetworkManager"
@@ -59,11 +59,3 @@ module NetworkManager
     end
   end
 end
-
-# silly test
-
-# nm = NetworkManager::Manager.new()
-# devices = nm.get_devices()
-# #print(devices)
-# print devices[0].get_name
-

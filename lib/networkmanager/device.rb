@@ -1,6 +1,6 @@
 
 require 'dbus'
-require 'network'
+require 'networkmanager/network'
 
 module NetworkManager
   # Encapsulates a NetworkManager Device object.
