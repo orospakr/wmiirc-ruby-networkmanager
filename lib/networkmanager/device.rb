@@ -20,7 +20,7 @@ module NetworkManager
       @device_interface.define_method('getIP4Address', '') # why is this even here?
       @device_interface.define_method('getLinkActive', '')
       @device_interface.define_method('getStrength', '')
-      # @device_interface.define_method("getActiveNetwork", ')
+      @device_interface.define_method("getActiveNetwork", '')
       @device_interface.define_method('getNetworks', '')
     end
 
@@ -51,6 +51,10 @@ module NetworkManager
     # return
     def get_network_paths
       @device_interface.getNetworks[0]
+    end
+
+    def get_active_network
+      NetworkManager::Network.new(@device_interface.getActiveNetwork[0])
     end
 
     def get_networks

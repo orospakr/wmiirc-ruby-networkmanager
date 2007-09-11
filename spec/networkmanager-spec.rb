@@ -33,5 +33,11 @@ module NetworkManager
       end
       networks.should_not be_nil
     end
+
+    it "'s active device should return an active network" do
+      active_device = @networkmanager.get_active_device
+      network = active_device.get_active_network
+      network.should_not be_nil
+    end
   end
 end

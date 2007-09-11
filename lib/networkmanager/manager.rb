@@ -30,15 +30,9 @@ module NetworkManager
 
     # returns an array of NetworkDevice objects
     def get_devices
-      #p "calling get_devices"
-      devices = get_device_paths
-      #p devices
-      device_objects = []
-      devices.each do |device_path|
-        device_objects << NetworkManager::Device.new(device_path)
+      get_device_paths.collect do |device_path|
+        NetworkManager::Device.new(device_path)
       end
-      #p device_objects
-      device_objects
     end
 
     # returns a NetworkDevice object representing the currently active device.
