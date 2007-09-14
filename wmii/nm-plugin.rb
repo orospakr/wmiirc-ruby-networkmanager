@@ -3,6 +3,10 @@ require 'networkmanager'
 Plugin.define("andrew@orospakr.ca") do
   author '"Andrew Clunis" <andrew@orospakr.ca>'
 
+  def network_to_human_name(network)
+    "#{network.get_name}:#{network.host_device.get_name}"
+  end
+
   network_manager = NetworkManager::Manager.new
 
   bar_applet("network-manager", 50) do |wmii, bar|
@@ -13,7 +17,9 @@ Plugin.define("andrew@orospakr.ca") do
     active_device = network_manager.get_active_device
     #bar.data = "whee"
     #bar.data = network_manager.get_current_ssid
-    if active_device.get_type == NetworkManager::TYPE_WIRELESS
+    if active_device.nil?
+      bar.data = "Not Connected"
+    elsif active_device.get_type == NetworkManager::TYPE_WIRELESS
       bar.data = active_device.get_active_network.get_name
     else
       bar.data = "Wired"
@@ -32,13 +38,13 @@ Plugin.define("andrew@orospakr.ca") do
       #})
       if device.get_type == NetworkManager::TYPE_WIRELESS
         for network in device.get_networks
-          human_names["#{network.get_name}:#{device.get_name}"] = network
+          human_names[network_to_human_name(network)] = network
         end
       end
     }
 
     wmii.wmiimenu(human_names.keys) do |network|
-      p "NetworkManager WMII frontend - user selected: #{human_names[network].get_name}"
+      p "NetworkManager WMII frontend - user selected: #{human_names[network].get_name}, on device #{human_names[network].host_device.get_name}"
     end
   end
 end

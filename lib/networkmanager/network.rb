@@ -5,7 +5,8 @@ module NetworkManager
   # via a wired ethernet controller, or a given 802.11 network available via the
   # wireless adapter.
   class Network
-    def initialize(network_path)
+    def initialize(network_path, device)
+      @host_device = device
       @nm_service = DBus::SystemBus.instance.service(NM_SERVICE)
       @network_object = @nm_service.object(network_path)
       @network_interface = DBus::ProxyObjectInterface.new(@network_object, NM_NETWORK_INTERFACE)

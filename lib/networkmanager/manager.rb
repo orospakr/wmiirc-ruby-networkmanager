@@ -50,6 +50,7 @@ module NetworkManager
         #p device.methods.sort
         return device if device.get_link_active
       end
+      return nil
     end
   end
 end

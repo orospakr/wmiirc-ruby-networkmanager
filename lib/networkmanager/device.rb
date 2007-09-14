@@ -54,14 +54,14 @@ module NetworkManager
     end
 
     def get_active_network
-      NetworkManager::Network.new(@device_interface.getActiveNetwork[0])
+      NetworkManager::Network.new(@device_interface.getActiveNetwork[0], self)
     end
 
     def get_networks
       path_array = get_network_paths
       network_objects = []
       path_array.each do |network_path|
-        network_objects << NetworkManager::Network.new(network_path)
+        network_objects << NetworkManager::Network.new(network_path, self)
       end
       network_objects
     end
